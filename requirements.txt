@@ -1,7 +1,3 @@
 streamlit
 pandas
-plotly
 openpyxl
-beautifulsoup4
-selenium
-urllib3
