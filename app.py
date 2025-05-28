@@ -68,6 +68,11 @@ if archivo_subido:
                 file_name="ranking_ponderado.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
+            with st.expander("📷 Ver ejemplo del archivo a subir"):
+             imagen = Image.open("prueba.png")
+            st.image(imagen, caption="Ejemplo de archivo con columnas requeridas", use_column_width=True)
+
+    
 
     except Exception as e:
         st.error(f"❌ Error al procesar el archivo: {e}")
