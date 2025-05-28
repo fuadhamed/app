@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 from io import BytesIO
+from PIL import Image
 
 st.set_page_config(page_title="Ranking Ponderado", layout="centered")
 
