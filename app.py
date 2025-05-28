@@ -1,7 +1,8 @@
 import pandas as pd
 import streamlit as st
 from io import BytesIO
-from PIL import Image  # ✅ Importación necesaria para mostrar imágenes
+from PIL import Image
+import os
 
 st.set_page_config(page_title="Ranking Ponderado", layout="centered")
 
@@ -70,11 +71,15 @@ if archivo_subido:
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
 
-            # ✅ Imagen de ayuda con botón desplegable
-            with st.expander("📷 Ver ejemplo del archivo a subir"):
-                imagen = Image.open("prueba.png")
-                st.image(imagen, caption="Ejemplo de archivo con columnas requeridas", use_column_width=True)
-
     except Exception as e:
         st.error(f"❌ Error al procesar el archivo: {e}")
+
+# --- Mostrar imagen de ejemplo ---
+with st.expander("📷 Ver ejemplo del archivo a subir"):
+    try:
+        imagen_path = os.path.join(os.path.dirname(__file__), "prueba.png")
+        imagen = Image.open(imagen_path)
+        st.image(imagen, caption="Ejemplo de archivo con columnas requeridas", use_column_width=True)
+    except Exception as e:
+        st.warning(f"No se pudo cargar la imagen de ejemplo: {e}")
 
