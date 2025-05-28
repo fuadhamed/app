@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 from io import BytesIO
-from PIL import Image
+from PIL import Image  # ✅ Importación necesaria para mostrar imágenes
 
 st.set_page_config(page_title="Ranking Ponderado", layout="centered")
 
@@ -69,11 +69,12 @@ if archivo_subido:
                 file_name="ranking_ponderado.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
-            with st.expander("📷 Ver ejemplo del archivo a subir"):
-             imagen = Image.open("prueba.png")
-            st.image(imagen, caption="Ejemplo de archivo con columnas requeridas", use_column_width=True)
 
-    
+            # ✅ Imagen de ayuda con botón desplegable
+            with st.expander("📷 Ver ejemplo del archivo a subir"):
+                imagen = Image.open("prueba.png")
+                st.image(imagen, caption="Ejemplo de archivo con columnas requeridas", use_column_width=True)
 
     except Exception as e:
         st.error(f"❌ Error al procesar el archivo: {e}")
+
