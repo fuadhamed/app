@@ -57,7 +57,8 @@ if archivo_subido:
             df_export = df_ordenado[columnas_finales]
 
             st.success("✅ ¡Ranking generado exitosamente!")
-            st.dataframe(df_export.head(20))
+            st.dataframe(df_export)
+
 
             # Botón de descarga
             output = BytesIO()
